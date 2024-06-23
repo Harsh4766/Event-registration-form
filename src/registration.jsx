@@ -52,7 +52,7 @@ const Registration = () => {
   }
 
   return (
-    <form className="mt-5 mx-5" onSubmit={handleSubmit} noValidate>
+    <form className="mt-5 mx-5 my-5" onSubmit={handleSubmit} noValidate>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">Name</label>
         <input 
