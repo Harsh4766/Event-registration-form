@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import Summary from './summery';
 
 const Registration = () => {
@@ -17,6 +17,12 @@ const Registration = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  useEffect(() => {
+    if (formData.attendingWithGuest === 'No') {
+      setFormData((prevData) => ({ ...prevData, guestName: '' }));
+    }
+  }, [formData.attendingWithGuest]);
 
   const validate = () => {
     let formErrors = {};
@@ -41,7 +47,7 @@ const Registration = () => {
 
   if (submitted) {
     return (
-      <Summary formData={formData}/>
+      <Summary formData={formData} setSubmitted={setSubmitted} setFormData={setFormData}/>
     );
   }
 
