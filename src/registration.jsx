@@ -16,6 +16,11 @@ const Registration = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    setErrors((prevErrors) => {
+      const { [name]: removedError, ...rest } = prevErrors;
+      return rest;
+    });
   };
 
   useEffect(() => {
